@@ -5,20 +5,14 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
-    bool runningRoutine;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Rotate(45);
-        }
-    }
+    public bool runningRoutine;
+
     public void Move(float ammount)
     {
         if (!runningRoutine)
         {
             Vector3 destination = transform.position + transform.forward * ammount;
-            print(transform.position + " " + destination);
+            //print(transform.position + " " + destination);
             StartCoroutine(MoveBehaviour(destination));
         }
     }
